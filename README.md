@@ -6,7 +6,7 @@ Projet de Ressource 5.04 de l'agence A
 La Ressource 5.04 est une ressource à compléter en groupe hétérogène composé de membres des différents parcours de MMI (DEV,CREA,STRAT).
 L'objectif établit par les professeurs au début de cette ressource est de produire un Webdoc et un podcasts sur le thème (choisi lui aussi par les professeurs) de la découverte de MMI et des métiers après celui-ci.
 
-Le groupe est composé de 12 membres (avec une répartition des parcours choisi par les professeurs) dont voici la liste :
+Le groupe est composé de 12 membres (avec une répartition par parcours choisi par les professeurs) dont voici la liste :
 - Nathan Cairon,
 - Oscar Claire,
 - Maxime Croissant,
