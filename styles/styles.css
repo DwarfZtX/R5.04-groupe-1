@@ -1,0 +1,42 @@
+
+/*--- Base ---*/
+
+:root{
+    --couleur-princ:#000000;
+    --couleur-sec:#000000;
+    --couleur-terc:#000000;
+    --couleur-police:#ffffff;
+}
+
+
+
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+}
+
+/*--- Header ---*/
+
+header{
+
+}
+
+/*--- Main ---*/
+
+main{
+
+}
+
+section{
+
+}
+
+/*--- Footer ---*/
+
+footer{
+    
+}
