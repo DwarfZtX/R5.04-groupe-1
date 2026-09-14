@@ -1,0 +1,9 @@
+<Files ".htaccess">
+    Order allow,deny
+    Deny from allow
+</Files>
+
+DirectoryIndex index.php 
+
+RedirectMatch 403 src/$
+RedirectMatch 403 src/data/$
