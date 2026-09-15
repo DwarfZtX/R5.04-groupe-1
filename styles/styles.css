@@ -10,14 +10,15 @@
 
 
 
-html{
+html,body{
     margin: 0;
     padding: 0;
 }
 
 body{
-    margin: 0;
-    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /*--- Header ---*/
@@ -56,7 +57,9 @@ header li {
 /*--- Main ---*/
 
 main{
-    min-height: 80%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 section{
@@ -72,6 +75,7 @@ section{
     align-items: center;
 
     margin: 0 50px;
+    flex:1;
 }
 
 
