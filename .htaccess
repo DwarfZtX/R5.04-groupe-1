@@ -3,7 +3,7 @@
     Deny from allow
 </Files>
 
-DirectoryIndex index.php 
+DirectoryIndex index.html
 
 RedirectMatch 403 src/$
 RedirectMatch 403 src/data/$

@@ -16,7 +16,8 @@ html{
 }
 
 body{
-
+    margin: 0;
+    padding: 0;
 }
 
 /*--- Header ---*/
@@ -38,5 +39,9 @@ section{
 /*--- Footer ---*/
 
 footer{
-    
+    background-color: #aaaaaa;
+    width: 100%;
+    padding:  50px 0;
+    bottom: 0;
+    text-align: center;
 }
