@@ -6,6 +6,12 @@
     --couleur-sec:#000000;
     --couleur-terc:#000000;
     --couleur-police:#ffffff;
+
+
+    --couleur-rouge:#ff0007;
+    --couleur-bleu: #1DB0FC;
+    --couleur-orange: #ff7700; 
+    --couleur-violet: #ff00cb;
 }
 
 
@@ -16,9 +22,17 @@ html,body{
 }
 
 body{
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+
+#canvas{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 
 /*--- Header ---*/
@@ -62,11 +76,153 @@ main{
     flex-direction: column;
 }
 
-section{
-
+#color-control-old{
+    width: 200px;
 }
 
-/*-- sction video --*/
+
+
+
+
+
+
+/*-- section Accueil --*/
+#accueil-text{
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    user-select: none;
+}
+
+#accueil-text>div{
+    background-color: #ffffff;
+}
+
+
+.accueil-flottant{
+    position:absolute;
+    border: 1px solid black;
+    background-color: #ffffff;
+    width: 180px;
+    height: 240px;
+    text-align: center;
+    align-content: end;
+    transition: all 0.2s ease;
+    z-index: 3;
+}
+
+
+#accueil-flottant-pos1{
+    top:15%;
+    left:10%;
+    transform: rotate(-10deg);
+}
+
+#accueil-flottant-pos2{
+    position:absolute;
+    top:10%;
+    right:10%;
+    transform: rotate(5deg);
+}
+
+#accueil-flottant-pos3{
+    position:absolute;
+    bottom:10%;
+    right:12%;
+    transform: rotate(8deg);
+}
+
+#accueil-flottant-pos3:hover,#accueil-flottant-pos2:hover,#accueil-flottant-pos1:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px black;
+}
+
+
+
+/* -- Color-control -- */
+
+
+#color-control{
+    padding: 0;
+    margin: 5px;
+
+    width: 300px;
+    height: 50px;
+
+    display: flex;
+    flex-direction:row;
+    position: relative;
+
+    bottom: 0;
+    left:10px;
+    overflow: hidden;
+
+    gap: 5px;
+}
+
+
+
+#color-control>*{
+    width: 45px;
+    height: 45px;
+    transition: all 0.2s ease;
+}
+
+
+#color-picker-1{
+    background-color: var(--couleur-rouge);
+}
+
+#color-picker-2{
+    background-color: var(--couleur-bleu);
+}
+
+#color-picker-3{
+    background-color: var(--couleur-orange);
+}
+
+#color-picker-4{
+    background-color: var(--couleur-violet);
+}
+
+
+
+/*-- section interview --*/
+
+.interview-part{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.interview-part:nth-child(1){
+    top:0;
+}
+.interview-part:nth-child(2){
+    top:0;
+}
+
+.interview-card{
+    position: relative;
+    border: 1px solid black;
+    width: 180px;
+    text-align: center;
+}
+
+.interview-card img{
+    margin: 5px;
+    height: 240px;
+    width: 170px;
+    object-fit: cover;
+}
+
+
+
+/*-- section video --*/
 
 .section-video{
     display: flex;
@@ -79,12 +235,80 @@ section{
 }
 
 
+
+form{
+    background-color: #aaaaaa;
+    user-select: none;
+    width:180px;
+}
+form p {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/*-- Section About --*/
+.portrait{
+    border:1px solid black;
+    width: 180px;
+    transition: all 0.2s ease;
+}
+
+.portrait:hover{
+    transform:rotate(0);
+}
+
+.portrait{
+    border:1px solid black;
+    width: 180px;
+}
+
+.portrait img{
+    margin: 5px;
+    height: 170px;
+    width: 170px;
+    object-fit: cover;
+}
+
+
+.portrait div{
+    text-align: center;
+}
+
+
+#list-portrait{
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap:30px;
+}
+
+#list-portrait .portrait:nth-child(2n+1){
+    transform:rotate(5deg);
+}
+
+
+#list-portrait .portrait:nth-child(2n){
+    transform:rotate(-5deg);
+}
+
+#list-portrait .portrait:nth-child(4n-2){
+    transform:rotate(8deg);
+}
+
+#list-portrait .portrait{
+    justify-self: center;
+}
+
+
 /*--- Footer ---*/
 
 footer{
     background-color: #aaaaaa;
     width: 100%;
-    padding:  50px 0;
+    padding:  25px 0;
     bottom: 0;
     text-align: center;
 }

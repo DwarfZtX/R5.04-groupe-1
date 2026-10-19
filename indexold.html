@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdoc</title>
+    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Webdoc</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="interviews.html">Interviews</a></li>
+                <li><a href="podcasts.html">Podcasts</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section >
+            <h2>Découvrez la formation MMI</h2>
+            <a href="interviews.html">Voir les interviews d'ancien élèves</a>
+        </section>
+        <section id="color-control-old">
+            <form>
+                <input id="input-color" type="color" hidden>
+                <p>Rouge</p>
+                <input id="input-rouge" type="range" min="0" max="100">
+                <p>Vert</p>
+                <input id="input-vert" type="range" min="0" max="100">
+                <p>Bleu</p>
+                <input id="input-bleu" type="range" min="0" max="100">
+                <p>Taille</p>
+                <input id="input-taille" type="range" min="25" max="150">
+            </form>
+            <button id="restore-button">Undo</button>
+            <button id="clear-button">Clear</button>
+        </section>
+        <canvas id="canvas"></canvas>
+    </main>
+    <footer>
+        @ 2026, Laval France, created by Nathan Cairon, Oscar Claire, Maxime Croissant, Arséne Devaud, Tina Droniou, Emilie Eono, Hugo Joubat, Willy Lecenne, Matthieu Meslé, Owen Serreau, Klervi Texier, Victor Verhaeghe.
+    </footer>
+</body>
+<script src="scripts/paint.js" defer></script>
+</html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webdoc</title>
     <link rel="stylesheet" href="./styles/styles.css" type="text/css">
 </head>
+
 <body>
     <header>
         <h1>Webdoc</h1>
@@ -19,13 +21,55 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h2>Découvrez la formation MMI</h2>
-            <a href="interviews.html">Voir les interviews d'ancien élèves</a>
+        <section id="accueil-text">
+            <div>
+                <h2>Découvrez la formation MMI</h2>
+                <p>LOREM IPSUM,LOREM IPSUM,LOREM IPSUM,LOREM IPSUM,LOREM IPSUM,LOREM IPSUM,LOREM IPSUM,LOREM IPSUM,LOREM
+                    IPSUM,LOREM IPSUM,LOREM IPSUM,LOREM IPSUM</p>
+            </div>
         </section>
+        <a href="interviews.html">
+            <article class="accueil-flottant" id="accueil-flottant-pos1">
+                <h2>Interviews</h2>
+            </article>
+        </a>
+        <a href="podcasts.html">
+            <article class="accueil-flottant" id="accueil-flottant-pos2">
+                <h2>Podcasts</h2>
+            </article>
+        </a>
+        <a href="about.html">
+            <article class="accueil-flottant" id="accueil-flottant-pos3">
+                <h2>A propos de nous</h2>
+            </article>
+        </a>
+
+        <section id="color-control">
+
+            <div id="color-picker-1">
+
+            </div>
+            <div id="color-picker-2">
+
+            </div>
+            <div id="color-picker-3">
+
+            </div>
+            <div id="color-picker-4">
+
+            </div>
+            <button id="clear-button">Clear</button>
+
+        </section>
+        <canvas id="canvas"></canvas>
+
+
     </main>
     <footer>
-        @ 2026, Laval France, created by Nathan Cairon, Oscar Claire, Maxime Croissant, Arséne Devaud, Tina Droniou, Emilie Eono, Hugo Joubat, Willy Lecenne, Matthieu Meslé, Owen Serreau, Klervi Texier, Victor Verhaeghe.
+        @ 2026, Laval France, created by Nathan Cairon, Oscar Claire, Maxime Croissant, Arséne Devaud, Tina Droniou,
+        Emilie Eono, Hugo Joubat, Willy Lecenne, Matthieu Meslé, Owen Serreau, Klervi Texier, Victor Verhaeghe.
     </footer>
 </body>
+<script src="scripts/paint2.js" defer></script>
+
 </html>

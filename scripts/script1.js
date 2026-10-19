@@ -1,4 +1,8 @@
 "use-strict"
 
-let title = document.querySelector("h1");
- 
+
+function ready(){
+
+}
+
+document.addEventListener('DOMContentLoaded',ready)

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Secret Job Gambling WebDoc</title>
+</head>
+<style>
+    :root{
+        --couleur-prim:#000000;
+        --couleur-seco:#ff00cc;
+        --couleur-terc:#00ccff;
+        --couleur-quad:#ffcc00;
+        --couleur-police:#ffffff;
+    }
+
+    html,body{
+        margin:0;
+        padding:0;
+
+    }
+
+    body{
+        font-size:12px;
+        background-color: var(--couleur-prim);
+        color:var(--couleur-police);
+
+        font-family: Courier, monospace;
+
+        display:flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    header{
+        padding: 25px 0;
+        background-color: var(--couleur-terc);
+        position: sticky;
+        top:0;
+        z-index: 10;
+        width: 100%;
+    }
+
+    header h1{
+        margin:0;
+        padding:0;
+    }
+
+    main{
+        flex: 1;
+    }
+
+    #job-research{
+    }
+
+    #jobList{
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid white;
+        width: auto;
+    }
+
+    h3,p{
+        padding: 0;
+        margin: 0;
+    }
+
+    #jobList>div{
+        margin: 10px 0;
+    }
+
+
+    footer{
+        background-color: var(--couleur-seco);
+        width: 100%;
+        padding:  25px 0;
+        bottom: 0;
+        text-align: center;
+    }
+</style>
+<body>
+    <header>
+        <h1>The Secret Job Gambling WebDoc</h1>
+    </header>
+    <main>
+        <section id="job-research">
+            <h2>Job-Research-3000</h2>
+            <button id="search-job-button">Search Job</button>
+            <div id="jobList">
+                <div>
+                    <h3>Backroom Exploration</h3>
+                </div>
+
+            </div>
+        </section>
+        <section>
+
+        </section>
+    </main>
+    <footer> @2026 - Created for Milk Mir by Bouclette Studio</footer>
+</body>
+<script>
+    "use-strict"
+
+    const BASEJOBQUALITYMULT = 0.2;
+    const BASEJOBDANGERMULT = 1.0;
+    const BASEJOBDIFFICULTYMULT = 1.0;
+    const BASELUCK = 5;
+
+    //REWARD : récompense en money
+    //XP : récompense en expérience
+    //RISK : chance de se blesser
+    //PRESSION : chance de déprime
+    //DIFFICULTY : chance d'échouer
+    // JOBDOMAINNAME : [JOBDOMAINBASEREWARD,JOBDOMAINBASEXP,JOBDOMAINBASERISK,JOBDOMAINBASPRESSION,JOBDOMAINBASEDIFFICULTY,JOBDOMAINNAME]
+    const JOBDOMAIN = {
+        "Food":[20,5,5,8,10,["Search a food truck employee","3 job opening for fast-food staff member","Shelf stocker for supermarket, 3 month"]],
+        "Design":[25,10,2,6,10, ["Need for a Web Designer","Job application for Graphic designer","Search Designer, no experience required"]],
+        "IA":[50,10,8,5,8, ["Need IA tester for our new model"]],
+        "Developper":[40,10,4,12,12, ["Search 2 Front-end developper","We search a React developper","developper Symphony/Laravel, 24 month"]],
+        "Social":[30,12,5,15,10, ["Job opening for Human Manager"]],
+        "Medical":[40,25,10,15,20, ["5 job opening in Local Medical Care","Need a nurse for disabled people"]],
+        "Military":[45,20,25,25,25, ["Join the AirForce, Sky is not the limit","Defend our country, Join the Army"]],
+        "Science":[30,20,30,15,15, ["Search Chemist for BioTreatment","Geologist Job for disaster prevention","The observatory need a new Astrophysicist"]],
+        "Industry":[35,15,20,20,10, ["Need 12 worker in Titanium Molding factory","Your Local Factory search Worker"]],
+        "Experimental":[75,45,35,35,50,["backroom explorer, Higth Risk, Higth Reward","BioWeapon tester for hire","Join the Anomaly Tester Team","Search someone brave, no question asked"]],
+    }
+
+    // QUALITYMODIFIERNAME : [QUALITYMULT]
+    const JOBQUALITYMODIFIER = {
+        "Internship":0,
+        "Demoniac":0.01,
+        "Dogsh*t":0.1,
+        "Dust":0.25,
+        "Trash":0.5,
+        "Common":1.0,
+        "Uncommon":2.0,
+        "Rare":4.0,
+        "Epic":10.0,
+        "Premium":25.0,
+        "Mythic":100.0,
+        "Legendary":500.0,
+        "Cosmic":2026.0,
+        "Galactic":5260.0,
+        "Universal":41000,
+        "Celestial":150000.0,
+        "Divine":600000,
+        "Ethereal":1000000,
+        "Godly":4096000,
+        "Trancendantal":16500000,
+        "Primordial":50000000,
+        "Forgotten":250000000,
+        "Dimensional":1000000000,
+        "Perfect":5260000000,
+        "Absurd":12159195121,
+        "Infinity":100000000000,
+        "Stackoverflow":696969696969,
+    }
+
+    let money = 100.0;
+    let experience = 0.0;
+    let health = 100.0;
+    let sanity = 100.0;
+    let luck = 0;
+
+
+    let searchJobList= []
+    let selectedJob = []
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function ready(){
+        var searchButton = document.getElementById("search-job-button");
+        searchButton.addEventListener("click",searchJob);
+    }
+
+    document.addEventListener("DOMContentLoaded",ready);
+
+
+    function searchJob(){
+        var jobList = document.getElementById("jobList");
+        jobList.innerHTML = "";
+        searchJobList = []
+        for(let i = 0; i < 3; i++){
+            const newJob = document.createElement("div");
+            const newJobTitle = document.createElement("h3");
+            const newJobDescription = document.createElement("p");
+
+            let keys = Object.keys(JOBDOMAIN);
+            let aleaDomain = keys[ keys.length * Math.random() << 0]
+
+            let aleaName = Math.floor(JOBDOMAIN[aleaDomain][5].length * Math.random() << 0);
+
+            newJobTitle.textContent = JOBDOMAIN[aleaDomain][5][aleaName];
+
+            let reward = (JOBDOMAIN[aleaDomain][0] * BASEJOBQUALITYMULT).toFixed(2)
+            let experienceGain = (JOBDOMAIN[aleaDomain][1] * BASEJOBQUALITYMULT).toFixed(2)
+            let risk = (JOBDOMAIN[aleaDomain][2] * BASEJOBDANGERMULT).toFixed(2)
+            let pression = (JOBDOMAIN[aleaDomain][3] * BASEJOBDANGERMULT).toFixed(2)
+            let difficulty = (JOBDOMAIN[aleaDomain][4] * BASEJOBDIFFICULTYMULT).toFixed(2)
+
+            newJobDescription.textContent = "income: "+reward+"|experience: "+experienceGain+"|injury odds: "+risk+"|burnout odds: "+pression+"|failure odds: "+difficulty
+
+            newJob.appendChild(newJobTitle);
+            newJob.appendChild(newJobDescription);
+            jobList.appendChild(newJob);
+        }
+
+    }
+
+
+</script>
+</html>
