@@ -7,11 +7,29 @@
     --couleur-terc:#000000;
     --couleur-police:#ffffff;
 
+    --couleur-contraste: #3A3A3A;
 
     --couleur-rouge:#ff0007;
     --couleur-bleu: #1DB0FC;
     --couleur-orange: #ff7700; 
     --couleur-violet: #ff00cb;
+    --couleur-vert: #83FF9C;
+}
+
+@font-face {
+    font-family: 'Avigea';
+    src: url('./fonts/Avigea.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Louis George Cafe';
+    src: url('fonts/Louis\ George\ Cafe.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 
@@ -26,6 +44,15 @@ body{
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    font-family: 'Louis George Cafe', sans-serif;
+
+    background-image: 
+        repeating-linear-gradient(0deg, #e5e5e5, #e5e5e5 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(90deg, #e5e5e5, #e5e5e5 1px, transparent 1px, transparent 40px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Avigea', sans-serif;
 }
 
 #canvas{
@@ -38,8 +65,6 @@ body{
 /*--- Header ---*/
 
 header{
-    background-color: #aaaaaa;
-
     position: sticky;
     top:0;
     z-index: 10;
@@ -47,26 +72,9 @@ header{
 
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
+    justify-content:space-between;
+    padding: 0 25px;
 }
-
-header ul{
-    height: 100%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-
-    list-style-type:none ;
-}
-
-header li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 
 /*--- Main ---*/
 
@@ -87,58 +95,82 @@ main{
 
 
 /*-- section Accueil --*/
-#accueil-text{
+.accueil-text{
     text-align: center;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     user-select: none;
 }
 
-#accueil-text>div{
-    background-color: #ffffff;
+.accueil-text p {
+    max-width: 50%;
+    text-align: left;
+    -webkit-text-stroke: 4px var(--couleur-police); 
+    paint-order: stroke fill;
+    font-size: 1.2rem;
 }
 
+.accueil-text h2 {
+    font-size: 3.2rem;
+    margin: 15px;
+    -webkit-text-stroke: 10px var(--couleur-police); 
+    paint-order: stroke fill;
+}
 
 .accueil-flottant{
     position:absolute;
-    border: 1px solid black;
-    background-color: #ffffff;
-    width: 120px;
-    height: 160px;
     text-align: center;
     align-content: end;
-    transition: all 0.2s ease;
     z-index: 3;
+}
+
+.accueil-flottant-svg {
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+.accueil-flottant-postit {
+    width: 185px;
+    transition: all 0.3s ease;
+}
+
+.accueil-flottant:hover .accueil-flottant-svg {
+    filter: drop-shadow(-5px -8px 0px rgba(0, 0, 0, 0.25));
+    scale: 0.97;
+    transition: all 0.3s ease;
+}
+
+.accueil-flottant:active .accueil-flottant-svg {
+    filter: 
+        drop-shadow(3px 0px 0px var(--couleur-princ))
+        drop-shadow(-3px 0px 0px var(--couleur-princ))
+        drop-shadow(0px 3px 0px var(--couleur-princ))
+        drop-shadow(0px -3px 0px var(--couleur-princ));
+    scale: 1;
+    transition: all 0.3s ease;
 }
 
 
 #accueil-flottant-pos1{
-    top:15%;
-    left:10%;
+    top:2%;
+    left:7%;
     transform: rotate(-10deg);
 }
 
 #accueil-flottant-pos2{
     position:absolute;
-    top:10%;
-    right:10%;
+    top:8%;
+    right:12%;
     transform: rotate(5deg);
 }
 
 #accueil-flottant-pos3{
     position:absolute;
-    bottom:10%;
-    right:12%;
-    transform: rotate(8deg);
-}
-
-#accueil-flottant-pos3:hover,#accueil-flottant-pos2:hover,#accueil-flottant-pos1:hover{
-    transform: scale(1.1);
-    box-shadow: 5px 5px 15px black;
+    bottom:4%;
+    right:20%;
 }
 
 
@@ -157,48 +189,94 @@ main{
 
 /* -- Color-control -- */
 
-
-#color-control{
+.color-control {
     padding: 0;
-    margin: 5px;
-
-    width: 300px;
-    height: 50px;
+    margin: 0;
 
     display: flex;
-    flex-direction:row;
-    position: relative;
+    flex-direction: row;
+    align-items: center;
+    
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    bottom: 0;
-    left:10px;
-    overflow: hidden;
+    overflow: visible;
+    gap: 15px;
 
-    gap: 5px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
 }
 
-
-
-#color-control>*{
+.color-control > * {
     width: 45px;
     height: 45px;
     transition: all 0.2s ease;
 }
 
-
-#color-picker-1{
-    background-color: var(--couleur-rouge);
+.color-control > *:first-child {
+    margin-right: 8px;
+    position: relative;
 }
 
-#color-picker-2{
-    background-color: var(--couleur-bleu);
+.color-control > *:last-child {
+    margin-left: 8px;
+    position: relative;
 }
 
-#color-picker-3{
-    background-color: var(--couleur-orange);
+.color-divider {
+    width: 1.5px;
+    height: 30px;
+    background-color: var(--couleur-contraste);
+    border-radius: 10px;
+    margin: 8px 0;
 }
 
-#color-picker-4{
-    background-color: var(--couleur-violet);
+.color-picker {
+    border-radius: 50%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.color-picker.color-effaceur.active {
+    background-color: color-mix(in srgb, var(--couleur-vert) 30%, transparent);
+    border: 2px solid var(--couleur-vert);
+}
+
+.color-effaceur svg {
+    transform: rotate(-30deg);
+}
+
+.color-picker:hover {
+    background-color: color-mix(in srgb, var(--couleur-contraste) 30%, transparent);
+    border: 2px solid color-mix(in srgb, var(--couleur-contraste) 30%, transparent);
+    transition: all 0.2s ease;
+}
+
+.color-picker.color-picker-bleu.active {
+    background-color: color-mix(in srgb, var(--couleur-bleu) 30%, transparent);
+    border: 2px solid var(--couleur-bleu);
+}
+
+.color-picker.color-picker-orange.active {
+    background-color: color-mix(in srgb, var(--couleur-orange) 30%, transparent);
+    border: 2px solid var(--couleur-orange);
+}
+
+.color-picker.color-picker-rose.active {
+    background-color: color-mix(in srgb, var(--couleur-violet) 30%, transparent);
+    border: 2px solid var(--couleur-violet);
+}
+
+.color-picker.color-picker-rouge.active {
+    background-color: color-mix(in srgb, var(--couleur-rouge) 30%, transparent);
+    border: 2px solid var(--couleur-rouge);
 }
 
 
