@@ -107,8 +107,8 @@ main{
     position:absolute;
     border: 1px solid black;
     background-color: #ffffff;
-    width: 180px;
-    height: 240px;
+    width: 120px;
+    height: 160px;
     text-align: center;
     align-content: end;
     transition: all 0.2s ease;
@@ -140,6 +140,18 @@ main{
     transform: scale(1.1);
     box-shadow: 5px 5px 15px black;
 }
+
+
+@media (min-width: 1000px) {
+    .accueil-flottant{
+        width: 180px;
+        height: 240px;
+    }
+}
+
+
+
+
 
 
 
@@ -234,6 +246,10 @@ main{
     flex:1;
 }
 
+video{
+    display: flex;
+    width: 66%;
+}
 
 
 form{

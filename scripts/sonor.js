@@ -16,9 +16,15 @@ function ready(){
             p.textContent = "test"
             div.appendChild(p);
             console.log("test2");
+            
         }
     }
+
 }
+
+
+
+
 
 document.addEventListener('DOMContentLoaded',ready)
 
