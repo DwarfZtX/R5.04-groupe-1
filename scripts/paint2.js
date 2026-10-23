@@ -42,7 +42,15 @@ window.addEventListener("resize", resizeCanvas);
 document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
-  const pickers = document.querySelectorAll(".color-picker");
+  const btnTableau = document.querySelector('.color-tableau');
+  if (btnTableau) {
+    btnTableau.addEventListener('click', () => {
+      document.body.classList.toggle('mode-tableau');
+      btnTableau.classList.toggle('active');
+    });
+  }
+
+  const pickers = document.querySelectorAll(".color-picker:not(.color-tableau)");
 
   pickers.forEach((picker) => {
     picker.addEventListener("click", () => {

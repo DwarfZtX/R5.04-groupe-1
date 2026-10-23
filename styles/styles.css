@@ -50,6 +50,15 @@ body.custom-cursor {
     cursor: var(--dynamic-cursor, auto);
 }
 
+body.mode-tableau header,
+body.mode-tableau footer {
+    display: none;
+}
+
+body.mode-tableau main > *:not(.canvas-container):not(.color-control) {
+    display: none;
+}
+
 h1,
 h2,
 h3,
