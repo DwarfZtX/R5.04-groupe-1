@@ -35,6 +35,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  cursor: auto;
 }
 
 body {
@@ -43,6 +44,10 @@ body {
   flex-direction: column;
   overflow: hidden;
   font-family: "Louis George Cafe", sans-serif;
+}
+
+body.custom-cursor {
+    cursor: var(--dynamic-cursor, auto);
 }
 
 h1,

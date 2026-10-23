@@ -61,24 +61,28 @@ function ready() {
     colorR = 255 / 255;
     colorG = 0.0 / 255;
     colorB = 7 / 255;
+    updateCursor('../styles/img/spray-rouge.png', 0, 0);
   });
   const color_picker_2 = document.getElementById("color-picker-1");
   color_picker_2.addEventListener("click", () => {
     colorR = 29 / 255;
     colorG = 176 / 255;
     colorB = 252 / 255;
+    updateCursor('../styles/img/spray-bleu.png', 0, 0);
   });
   const color_picker_3 = document.getElementById("color-picker-2");
   color_picker_3.addEventListener("click", () => {
     colorR = 255 / 255;
     colorG = 119 / 255;
     colorB = 0.0 / 255;
+    updateCursor('../styles/img/spray-orange.png', 0, 0);
   });
   const color_picker_4 = document.getElementById("color-picker-3");
   color_picker_4.addEventListener("click", () => {
     colorR = 255 / 255;
     colorG = 0.0 / 255;
     colorB = 203 / 255;
+    updateCursor('../styles/img/spray-rose.png', 0, 0);
   });
 
   drawGrid();
@@ -164,6 +168,8 @@ if (effaceurDiv) {
     currentTool = "erase";
     document.querySelectorAll(".color-picker").forEach((p) => p.classList.remove("active"));
     effaceurDiv.classList.add("active");
+
+    updateCursor('../styles/img/eraser.png', 16, 16);
   });
 
   effaceurDiv.addEventListener("dblclick", clear);
@@ -204,6 +210,12 @@ function clear() {
 
   /*restoreArray = [];
     restoreIndex = -1;*/
+}
+
+// Fonction pour appliquer le curseur personnalisé (spray ou gomme)
+function updateCursor(cursorUrl, hotspotX = 0, hotspotY = 0) {
+  document.body.classList.add("custom-cursor");
+  document.body.style.setProperty('--dynamic-cursor', `url('${cursorUrl}') ${hotspotX} ${hotspotY}, auto`);
 }
 
 /*
