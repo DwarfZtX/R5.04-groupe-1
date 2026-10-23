@@ -13,7 +13,7 @@ const inputBleu = document.getElementById("input-bleu");
 const inputTaille = document.getElementById("input-taille");
 
 const buttonRestore = document.getElementById("restore-button");*/
-const buttonClear = document.getElementById("clear-button");
+const effaceurDiv = document.querySelector(".color-effaceur");
 
 let colorR = 1.0;
 let colorG = 1.0;
@@ -64,6 +64,8 @@ function ready() {
     colorG = 0.0 / 255;
     colorB = 203 / 255;
   });
+
+  drawGrid();
 }
 
 let addInterval = null;
@@ -77,7 +79,7 @@ let ArrayImgPos = [];
 function startdraw(event) {
   if (
     event.target.closest("#color-control") ||
-    event.target.closest("#clear-button")
+    event.target.closest(".color-effaceur")
   ) {
     return;
   }
@@ -126,13 +128,41 @@ document.addEventListener("touchdown", stopdraw);
 document.addEventListener("mouseleave", stopdraw);
 window.addEventListener("mouseup", stopdraw); // au cas où on relâche en dehors du canvas
 
-buttonClear.addEventListener("click", clear);
+if (effaceurDiv) {
+  effaceurDiv.addEventListener("dblclick", clear);
+}
 /*buttonRestore.addEventListener('click',restore)*/
+
+function drawGrid() {
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.strokeStyle = "#e5e5e5";
+  ctx.lineWidth = 1;
+
+  const step = 40;
+
+  for (let x = 0; x <= canvas.width; x += step) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, canvas.height);
+    ctx.stroke();
+  }
+
+  for (let y = 0; y <= canvas.height; y += step) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(canvas.width, y);
+    ctx.stroke();
+  }
+}
 
 function clear() {
   ctx.fillStyle = "#ffffff";
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  drawGrid();
 
   /*restoreArray = [];
     restoreIndex = -1;*/
